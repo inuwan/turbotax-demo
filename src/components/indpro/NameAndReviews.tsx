@@ -12,7 +12,7 @@ const CID_KV = AND + CID_KEY + '=' + PRO_REFERRED_VALUE;
 const CHANNEL_URL_KEY = '&channelUrl=';
 
 const NameAndReviews = () => {
-  const { c_taxProName, c_officeLocationName } = useIndependentPro();
+  const { c_taxProName, c_officeLocationName, id } = useIndependentPro();
   const config = useConfig();
   const [requestOriginParams, setRequestOriginParams] = useState('');
 
@@ -50,8 +50,8 @@ const NameAndReviews = () => {
             object={"Schedule a meeting"}
             as={"a"}
             href={
-              "https://myturbotax.intuit.com/?uroute=pro-matching&verified-pro-name=" +
-              encodeURIComponent(c_taxProName) +
+              "https://myturbotax.intuit.com/?uroute=pro-matching&pseudo-id=" +
+                id +
               requestOriginParams
             }
             className={"grow xs:grow-0"}
