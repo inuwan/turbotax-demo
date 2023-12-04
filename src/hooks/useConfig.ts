@@ -43,7 +43,7 @@ const ConfigsByEnv: Record<Env, Config> = {
     makeMatchingCtaUrl: (pro: TaxProsDevExtended) => {
       const baseUrl = "https://pros-turbotax-e2e.app.intuit.com/pro-matching-intro";
       const urlParams = new URLSearchParams();
-      urlParams.set("pseudo-id", pro.id);
+      urlParams.set("pseudo-id", pro.c_pseudonymID);
       return [baseUrl, urlParams];
     },
   },
@@ -65,7 +65,7 @@ const ConfigsByEnv: Record<Env, Config> = {
     makeMatchingCtaUrl: (pro: TaxProsDevExtended) => {
       const baseUrl = "https://pros-turbotax-e2e.app.intuit.com/pro-matching-intro";
       const urlParams = new URLSearchParams();
-      urlParams.set("pseudo-id", pro.id);
+      urlParams.set("pseudo-id", pro.c_pseudonymID);
       return [baseUrl, urlParams];
     },
   },
@@ -87,7 +87,7 @@ const ConfigsByEnv: Record<Env, Config> = {
     makeMatchingCtaUrl: (pro: TaxProsDevExtended) => {
       const baseUrl = "https://pros-turbotax.app.intuit.com/pro-matching-intro";
       const urlParams = new URLSearchParams();
-      urlParams.set("pseudo-id", pro.id);
+      urlParams.set("pseudo-id", pro.c_pseudonymID);
       return [baseUrl, urlParams];
     },
   },

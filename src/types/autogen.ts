@@ -83,6 +83,7 @@ export interface TaxProsDev {
   c_signedMapUrlProd: string;
   id: string;
   labels: any;
+  c_pseudonymID: string;
 }
 
 export interface ComplexImage {
