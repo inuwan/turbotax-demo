@@ -41,7 +41,7 @@ const Header: React.FC<Props> = () => {
 
       {config.showMatchingCTAs && (
         <div className={"gap-5 flex"}>
-          <Button priority={"primary"} iconBefore={<Search />} as={"a"} href={"/"}>
+          <Button priority={"primary"} iconBefore={<Search />} as={"a"} href={"https://pros.turbotax.intuit.com/"}>
             Find a pro
           </Button>
           <Button

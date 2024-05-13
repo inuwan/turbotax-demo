@@ -2,7 +2,7 @@ import { createContext, useContext } from "react";
 import type { TaxProsDevExtended } from "./useIndependentPro";
 
 type Env = "local" | "qa" | "prod";
-export type Page = "independentPro" | "matchingPreview" | "proReferral" | "faq" | "dynamicPreview";
+export type Page = "independentPro" | "matchingPreview" | "proReferral" | "faq" | "dynamicPreview" | "directory" | "directory_region" | "directory_city";
 
 export interface Config {
   env: Env;
@@ -87,7 +87,7 @@ const ConfigsByEnv: Record<Env, Config> = {
       src: "//uxfabric.intuitcdn.net/analytics/prod/track-event-lib-init.min.js",
       loadAdobeVisitorAPI: false,
     },
-    proMatchingIntroUrl: "https://pros-turbotax.app.intuit.com/pro-matching-intro",
+    proMatchingIntroUrl: "https://pros.turbotax.intuit.com/",
     makeMatchingCtaUrl: (pro: TaxProsDevExtended) =>
       makeCtaUrl(pro, "https://pros-turbotax.app.intuit.com/pro-matching-intro"),
   },

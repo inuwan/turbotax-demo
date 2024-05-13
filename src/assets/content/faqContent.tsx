@@ -1,5 +1,6 @@
 import { FaqItemProps } from "../../components/indpro/FaqItem";
 import BaseLink from "../../components/atoms/Link";
+import useIsPreview from "../../hooks/useIsPreview";
 
 const VerifiedPro = () => <span className={"font-semibold"}>Intuit TurboTax Verified Pro</span>;
 
@@ -10,19 +11,21 @@ const LinkDestinations = {
   turboTaxGuarantees: "https://turbotax.intuit.com/corp/guarantees/",
 } as const;
 
-const Link: React.FC<{ to: keyof typeof LinkDestinations }> = (props) => (
-  <BaseLink
+const Link: React.FC<{ to: keyof typeof LinkDestinations }> = (props) => {
+  const isPreview = useIsPreview()
+  
+  return <BaseLink
     action={"engaged"}
     object={"faq link"}
     objectDetail={props.to}
     href={LinkDestinations[props.to]}
-    target={"_blank"}
+    target={isPreview ? "_self": "_blank"}
     rel={"noreferrer noopener"}
     className={"font-medium text-blue02 hover:underline"}
   >
     {props.children}
   </BaseLink>
-);
+};
 
 const content: FaqItemProps[] = [
   {

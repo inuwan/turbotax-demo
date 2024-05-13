@@ -6,21 +6,18 @@ buildConfiguration:
       - package.json
       - package-lock.json
       - .npmrc
-livePreviewConfiguration:
-  setupCommand: ":"
-  serveCommand: npm run studio
 sitemap:
   disableSitemapGeneration: false
-  fileName: expert-profile-sitemap
+  fileName: expert-profile-sitemap.xml
 serving:
   reverseProxyPrefix: pros.turbotax.intuit.com
 staticRouting:
   - from: "/"
-    to: https://pros-turbotax.app.intuit.com/pro-matching-intro
+    to: https://pros.turbotax.intuit.com/
     statusCode: 301
   - from: ""
-    to: https://pros-turbotax.app.intuit.com/pro-matching-intro
+    to: https://pros.turbotax.intuit.com/
     statusCode: 301
   - from: "/index.html"
-    to: https://pros-turbotax.app.intuit.com/pro-matching-intro
+    to: https://pros.turbotax.intuit.com/
     statusCode: 301

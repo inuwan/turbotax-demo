@@ -1,5 +1,5 @@
 import { B2, B3 } from "../atoms/Typography";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { TextColor } from "../atoms/TextColor";
 import {
   Blog,
@@ -14,8 +14,15 @@ import {
 } from "./FooterIcons";
 import Link from "../atoms/Link";
 import { TypeScale } from "../atoms/TypeScale";
+import StateLinks from '../directory/StateLinks';
+import classNames from "classnames";
 
-const Footer: React.FC = () => {
+interface FooterGlobalProps {
+  baseUrl?: string;
+}
+
+const Footer: React.FC<FooterGlobalProps> = (props: FooterGlobalProps) => {
+  const baseUrl = props.baseUrl ?? 'https://pros.turbotax.intuit.com/';
   const [isInCalifornia, setIsInCalifornia] = useState(
     globalThis.document?.cookie.includes("AKES_GEO=US~CA")
   );
@@ -36,10 +43,13 @@ const Footer: React.FC = () => {
     <footer className={"w-full bg-pepper0"}>
       <FooterSection>
         <B3 color={TextColor.pepper110} className={"italic py-2"}>
-          "Local" for the purposes of virtual meetings with Intuit TurboTax Verified Pros, shall
-          mean that the pro is in the same state as the customer. "Local" for the purposes of
-          in-person meeting with Intuit TurboTax Verified Pros shall mean that the pro is within 50
-          miles of the consumers. Local pros are not available in all states or all locations.
+          TurboTax offers or discounts don’t apply to TurboTax Verified Pro services.
+          Your independent tax pro will work with you to set the final price before preparing your return, based on your tax situation.
+          <br/><br/>
+          *Not all feature combinations are available for all locations.
+          In-person meetings with a local tax pro are available in some locations, but not available in all states or locations.
+          "Local" tax pro is defined as being located within the same state as the client for virtual meetings.
+          "Local" tax pro, for the purpose of in-person meetings, is defined as being located within 50 miles of the consumer's zip code.
         </B3>
       </FooterSection>
       <hr className={"border-pepper30"} />
@@ -48,7 +58,7 @@ const Footer: React.FC = () => {
         <div className={"flex flex-wrap gap-5 justify-between"}>
           <B2 className={"flex flex-wrap gap-5"}>
             <FooterLink href={"/store-finder"}>Store Finder</FooterLink>
-            <FooterLink href={"/sitemap.xml"}>Sitemap</FooterLink>
+            <FooterLink href={"/expert-profile-sitemap.xml"}>Sitemap</FooterLink>
           </B2>
           <div className={"flex flex-wrap space-x-5"}>
             <YouTube />
@@ -207,6 +217,9 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </FooterSection>
+      <FooterSection noMobileVerticalPadding={true}>
+        <StateLinks baseUrl={baseUrl} />
+      </FooterSection>
     </footer>
   );
 };
@@ -270,8 +283,13 @@ const FooterLink: React.FC<FooterProps> = ({ children, href, openInNewWindow }) 
   );
 };
 
-const FooterSection: React.FC = ({ children }) => {
-  return <section className={"max-w-[1200px] px-10 py-5 mx-auto"}>{children}</section>;
+interface FooterSectionProps {
+  children: ReactNode;
+  noMobileVerticalPadding?: boolean;
+}
+
+const FooterSection: React.FC<FooterSectionProps> = ({ children, noMobileVerticalPadding }) => {
+  return <section className={classNames("max-w-[1200px] py-5 mx-auto", !noMobileVerticalPadding ? "px-10" : "s:px-10")}>{children}</section>;
 };
 
 export default Footer;

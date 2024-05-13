@@ -90,6 +90,7 @@ declare const YEXT_PUBLIC_TRACKSTAR_WRITE_KEY: string;
 declare const YEXT_PUBLIC_FILTER_ID: string;
 declare const YEXT_PUBLIC_LABEL_LOOKUP_MAP: string;
 declare const YEXT_PUBLIC_REVIEWS_API_KEY: string;
+declare const YEXT_PUBLIC_STREAMS_API_KEY: string;
 declare const APP_VERSION: string;
 
 interface Window {

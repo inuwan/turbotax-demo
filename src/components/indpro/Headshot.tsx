@@ -1,5 +1,5 @@
 import useIndependentPro from "../../hooks/useIndependentPro";
-import { Image } from "@yext/sites-components";
+import { Image } from "@yext/pages-components";
 import OutsideCPA from "../../assets/icons/OutsideCPA";
 
 const Headshot: React.FC = () => {

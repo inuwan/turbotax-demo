@@ -125,7 +125,7 @@ const FaqItem: React.FC<FaqItemProps> = (props) => {
         onClick={toggle}
         id={props.title.replace(/\s/g, "-").toLowerCase()}
         className={
-          "list-none flex justify-between hover:bg-pepper0 active:bg-pepper10 outline-blueberry80 outline-2 p-4 cursor-pointer scroll-mt-20"
+          "list-none grid grid-cols-[1fr_24px] gap-x-1.5 hover:bg-pepper0 active:bg-pepper10 outline-blueberry80 outline-2 py-4 cursor-pointer scroll-mt-20"
         }
       >
         <B2 weight={"demi"}>{props.title}</B2>{" "}

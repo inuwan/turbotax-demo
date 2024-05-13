@@ -64,9 +64,6 @@ export const transformProps: TransformProps<TemplateProps<TaxProsDevExtended>> =
   const isQA = YEXT_PUBLIC_ENVIRONMENT !== "prod";
 
   const doc = data.document;
-  doc.reviewGenerationUrl = await fetchReviewUrl(doc);
-  doc.reviews = await getReviews(doc);
-  doc.reviewsAggregate = await getReviewsAggregate(doc);
   if (isQA) {
     doc.c_signedMapUrl = doc.c_signedMapUrlPreProd;
   } else {
